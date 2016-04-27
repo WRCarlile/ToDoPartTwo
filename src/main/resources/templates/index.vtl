@@ -4,12 +4,12 @@
   #if ($tasks)
   <ul>
     #foreach ($task in $tasks)
-    <li>$task.getDescription()</li>
+    <li><a href="/currentTask/$task.getId()">$task.getDescription()</a></li>
     #end
   </ul>
   #else
-    <p>No tasks!</p>
-    #end
+  <p>No tasks!</p>
+  #end
 
   <h3>Add a new task: </h3>
   <form action='/tasks' method='post'>

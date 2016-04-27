@@ -19,10 +19,10 @@ public class Task {
 
   public static Task find(int id) {
     try {
-      return instantFood.get(id+100);
-    } catch (IndexOutOfBoundsException e) {
-      System.out.println(e.());
       return instantFood.get(id);
+    } catch (IndexOutOfBoundsException e) {
+      System.out.println(e);
+      return null;
     }
   }
 
@@ -34,9 +34,9 @@ public class Task {
     return mCompleted;
   }
 
-  // public void completedTask(){
-  //   mCompleted = true;
-  // }
+  public void completedTask(){
+    mCompleted = true;
+  }
 
   public LocalDateTime getCreatedAt() {
     return mCreatedAt;
@@ -45,10 +45,6 @@ public class Task {
   public static ArrayList<Task> all() {
     return instantFood;
   }
-
-    public static String helloWorld() {
-      return "instantFood";
-    }
 
   public static void clear() {
     instantFood.clear();
