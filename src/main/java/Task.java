@@ -35,7 +35,11 @@ public class Task {
   }
 
   public void completedTask(){
-    mCompleted = true;
+    if(mCompleted){
+      mCompleted = false;
+    } else {
+      mCompleted = true;
+    }
   }
 
   public LocalDateTime getCreatedAt() {

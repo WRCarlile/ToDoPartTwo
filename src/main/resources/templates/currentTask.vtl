@@ -2,9 +2,10 @@
 
 #if($task.isCompleted())
 <h2> is completed </h2>
+<a href="/currentTask/$task.getId()/uncomplete"> complete it</a>
 #else
 <h2> is not complete </h2>
-<a href="/complete/$task.getId()"> complete it</a>
+<a href="/currentTask/$task.getId()/complete"> complete it</a>
 #end
 
 

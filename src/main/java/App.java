@@ -50,7 +50,21 @@ public class App {
       return new ModelAndView(model, "templates/layout.vtl");
     }, new VelocityTemplateEngine());
 
-    get("/complete/:id", (request, response) -> {
+    get("/currentTask/:id/complete", (request, response) -> {
+
+      Task task = Task.find(Integer.parseInt(request.params(":id")));
+      task.completedTask();
+      System.out.println(task.isCompleted());
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("task", task);
+      model.put("taskName", task.getDescription());
+      model.put("timeMade", task.getCreatedAt());
+      model.put("template", "templates/currentTask.vtl");
+      return new ModelAndView(model, "templates/layout.vtl");
+    }, new VelocityTemplateEngine());
+
+
+    get("/currentTask/:id/uncomplete", (request, response) -> {
 
       Task task = Task.find(Integer.parseInt(request.params(":id")));
       task.completedTask();
